@@ -1,0 +1,275 @@
+$input-bg-color: #f2f2f2;
+$input-font-color: #444;
+
+$separator-color: #e8e8e8;
+$out-of-focus-color: #c4c4c4;
+
+$standard-small-gap: .5em;
+$standard-content-gap: 1em;
+$standard-input-padding: 8px;
+
+html,
+input,
+textarea {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+body {
+    display: grid;
+    font-size: 62.5%;
+    margin: auto;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 2.5em;
+}
+
+p {
+    font-size: 1.8em;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+// The default layout, used for mobile and browsers not supporting grid.
+@mixin default-layout {
+    grid-template-areas:
+        'header'
+        'nav'
+        'content'
+        'footer';
+    grid-template-columns: 100%;
+    grid-template-rows: 30vh min-content auto min-content;
+}
+
+@mixin full-size-layout {
+    grid-template-areas:
+        'header  header  header  header'
+        '.       content nav     .'
+        '.       content .       .'
+        'footer  footer  footer  footer';
+    grid-template-rows: 250px min-content auto min-content;
+}
+
+@supports not (grid-auto-rows: max-content) {
+    header {
+        height: 300px;
+        max-height: 40vh;
+
+        h1 {
+            text-align: center;
+        }
+    }
+}
+
+@supports (grid-auto-rows: max-content) {
+    @media (max-width: 479px) {
+        body {
+            @include default-layout;
+        }
+    }
+
+    @media (min-width: 480px) and (max-width: 767px) {
+        body {
+            @include default-layout;
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+        body {
+            @include full-size-layout;
+            grid-template-columns: 5px 3fr 1fr 5px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        body {
+            @include full-size-layout;
+            grid-template-columns: auto 720px 240px auto;
+        }
+    }
+}
+
+header {
+    align-items: center;
+    background-image: url('assets/images/header.jpg');
+    display: grid;
+    grid-area: header;
+    justify-items: center;
+
+    h1 {
+        color: white;
+        font-size: 4em;
+        text-shadow: 1px 1px 2px black;
+    }
+}
+
+nav {
+    grid-area: nav;
+
+    ol {
+        list-style: none;
+        padding: 0;
+
+        li {
+            margin: 0;
+
+            a {
+                color: white;
+                display: block;
+                font-size: 2em;
+                padding: 8px;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+#page-content {
+    grid-area: content;
+    margin: 0 $standard-content-gap;
+
+    @media (min-width: 550px) {
+        .about-content {
+            display: grid;
+            grid-auto-rows: max-content;
+            grid-gap: $standard-content-gap $standard-content-gap;
+            grid-template-areas: 'page page';
+            grid-template-columns: 1fr 1fr;
+
+            .about-page {
+                grid-area: 'page';
+                margin: 10px;
+                text-align: justify;
+                text-indent: 10px;
+            }
+        }
+    }
+
+    .post-title {
+        display: inline-block;
+        font-size: 2.5em;
+        font-weight: bold;
+        margin: $standard-small-gap 0;
+    }
+
+    .post-short {
+        border-bottom: 1px solid $separator-color;
+        padding: $standard-content-gap 0;
+
+        .post-short-content {
+            margin: 0;
+        }
+
+        .lum-thumbnail {
+            float: left;
+            margin-right: $standard-small-gap;
+            margin-top: 0;
+        }
+
+        .post-short-date {
+            color: $out-of-focus-color;
+            font-size: 1.4em;
+            text-align: right;
+        }
+
+        .clear-float {
+            clear: both;
+        }
+    }
+
+    &.contact-content {
+        form {
+            input,
+            textarea,
+            button {
+                background-color: $input-bg-color;
+                border: .5px solid darken($input-bg-color, 10%);
+                border-radius: 4px;
+                color: $input-font-color;
+                font-size: inherit;
+                padding: $standard-input-padding;
+            }
+
+            textarea {
+                box-sizing: border-box;
+                width: 100%;
+            }
+
+            input {
+                box-sizing: border-box;
+                width: 50%;
+            }
+
+            button {
+                margin-bottom: $standard-content-gap;
+            }
+
+            .highlight {
+                color: red;
+            }
+        }
+
+        p {
+            width: 100%;
+
+            &.success {
+                color: green;
+            }
+
+            &.error {
+                color: red;
+            }
+        }
+    }
+}
+
+footer {
+    color: white;
+    font-size: 1.5em;
+    grid-area: footer;
+    text-align: center;
+}
+
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.theme-color {
+    background-color: #324359;
+}
+
+// Tooltip
+.tooltip {
+    display: inline-block;
+    position: relative;
+
+    .tooltiptext {
+        background-color: white;
+        border: .5px solid darken($input-bg-color, 10%);
+        border-radius: 4px;
+        bottom: 5px;
+        left: 10px;
+        padding: 3px;
+        position: absolute;
+        text-align: center;
+        visibility: hidden;
+        z-index: 1;
+    }
+
+    &:hover {
+        .tooltiptext {
+            visibility: visible;
+        }
+    }
+}

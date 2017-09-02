@@ -1,0 +1,56 @@
+$lightbox-bg-color: rgba(0, 0, 0, .8);
+$lightbox-border-radius: 6px;
+$lightbox-min-border: 10px;
+
+.gallery-thumb-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+
+    .gallery-thumb {
+        display: inline-block;
+        margin: 5px;
+    }
+
+    .lightbox-frame {
+        display: none;
+
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        z-index: 10;
+        top: 0;
+        left: 0;
+
+        background-color: $lightbox-bg-color;
+
+        .lightbox {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            background-color: white;
+            border-radius: $lightbox-border-radius;
+
+            img {
+                max-width: 80vw;
+                max-height: 80vh;
+                width: auto;
+                height: auto;
+                margin: $lightbox-min-border;
+            }
+
+            p {
+                margin: $lightbox-min-border;
+            }
+        }
+
+        &:target {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
