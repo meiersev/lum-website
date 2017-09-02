@@ -2,6 +2,10 @@ $lightbox-bg-color: rgba(0, 0, 0, .8);
 $lightbox-border-radius: 6px;
 $lightbox-min-border: 10px;
 
+$spinner-size: 80px;
+$spinner-color: #07d;
+$spinner-bg-color: #ccc;
+
 .gallery-thumb-list {
     display: flex;
     flex-direction: row;
@@ -27,9 +31,12 @@ $lightbox-min-border: 10px;
         background-color: $lightbox-bg-color;
 
         .lightbox {
+            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-width: 2 * $spinner-size;
+            min-height: 2 * $spinner-size;
 
             background-color: white;
             border-radius: $lightbox-border-radius;
@@ -52,5 +59,27 @@ $lightbox-min-border: 10px;
             align-items: center;
             justify-content: center;
         }
+    }
+}
+
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+
+.spinner {
+    &::before {
+        content: '';
+        box-sizing: border-box;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: $spinner-size;
+        height: $spinner-size;
+        margin-top: -.5 * $spinner-size;
+        margin-left: -.5 * $spinner-size;
+        border-radius: 50%;
+        border: 2px solid $spinner-bg-color;
+        border-top-color: $spinner-color;
+        animation: spinner .6s linear infinite;
     }
 }

@@ -11,34 +11,42 @@ foreach ($attachment_ids as $index => $attachment_id) {
     // Thumbnail ?>
     <a href="<?php echo '#img'.$attachment_id ?>"
         id="<?php echo 'img'.$attachment_id.'thumb' ?>"
+        onclick="<?php echo 'galleryThumbClick('.$attachment_id.')' ?>"
         class="gallery-thumb">
         <?php echo wp_get_attachment_image($attachment_id, 'thumbnail'); ?>
     </a><?php
     // Lightbox
     ?><div class="lightbox-frame"
         id="<?php echo 'img'.$attachment_id ?>">
-        <a href="#"
-        class="lightbox">
         <?php
-
-            echo wp_get_attachment_image($attachment_id, 'large');
-            $description = wp_get_attachment_caption($attachment_id);
-            if ($description) {?>
-            <p class="lightbox-description">
-                <?php echo wp_get_attachment_caption($attachment_id); ?>
-            </p>
-        </a>
-        <?php }
         // Button to go to previous image
         if ($index > 0) {
-            ?><a href="<?php echo '#img'.$attachment_ids[$index - 1] ?>"
-                 class="gallery-prev-arrow">prev
+            $prev_attachment_id = $attachment_ids[$index - 1];
+            ?><a href="<?php echo '#img'.$prev_attachment_id ?>"
+                 class="gallery-prev-arrow"
+                 onclick="<?php echo 'galleryThumbClick('.$prev_attachment_id.')' ?>">
+                 <img src="<?php
+                    echo get_template_directory_uri().
+                    '/image-gallery/icons/ic_navigate_before_white_48px.svg'?>"
+                    />
             </a><?php
         }
+        ?>
+        <a href="#"
+        class="lightbox spinner">
+            <!-- Content added dynamically using ajax -->
+        </a>
+        <?php
         // Button to go to next image
         if ($index < sizeof($attachment_ids) - 1) {
-            ?><a href="<?php echo '#img'.$attachment_ids[$index + 1] ?>"
-                 class="gallery-next-arrow">next
+            $next_attachment_id = $attachment_ids[$index + 1];
+            ?><a href="<?php echo '#img'.$next_attachment_id ?>"
+                 class="gallery-next-arrow"
+                 onclick="<?php echo 'galleryThumbClick('.$next_attachment_id.')' ?>">
+                 <img src="<?php
+                    echo get_template_directory_uri().
+                    '/image-gallery/icons/ic_navigate_next_white_48px.svg'?>"
+                    />
             </a><?php
         }
         ?>

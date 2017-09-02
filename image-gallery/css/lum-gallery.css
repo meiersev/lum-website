@@ -23,9 +23,12 @@
 }
 
 .gallery-thumb-list .lightbox-frame .lightbox {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 160px;
+    min-height: 160px;
     background-color: white;
     border-radius: 6px;
 }
@@ -46,4 +49,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner::before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    margin-top: -40px;
+    margin-left: -40px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    border-top-color: #07d;
+    animation: spinner .6s linear infinite;
 }
