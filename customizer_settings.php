@@ -61,19 +61,24 @@ add_action('wp_head', 'lum_header_image_css');
 
 function lum_general_theme_color_css() {
     $theme_color = get_theme_mod('theme_color');
+    $wb_complement = wbComplementSelect($theme_color);
     ?>
     <style type="text/css">
         .theme-color {
-            background-color: <?php echo $theme_color ?>;
-            color: <?php echo wbComplementSelect($theme_color); ?>;
+            color: <?php echo $theme_color; ?>;
+            outline: transparent solid 2px;
+            transition: outline-color .5s linear;
         }
         a.theme-color:hover {
-            background-color: <?php
-                echo adjustBrightness($theme_color, -0.2)?>;
+            outline: <?php echo $theme_color; ?> solid 2px;
+        }
+        .theme-color-bg {
+            background-color: <?php echo $theme_color; ?>;
+            color: <?php echo $wb_complement; ?>;
         }
         ::selection {
             background-color: <?php echo $theme_color ?>;
-            color: <?php echo wbComplementSelect($theme_color); ?>;
+            color: <?php echo $wb_complement; ?>;
         }
     </style>
     <?php

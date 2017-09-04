@@ -4,8 +4,8 @@
     <title>Leder und Mehr</title>
     <link rel="stylesheet" type="text/css"
         href="<?php bloginfo('stylesheet_url'); ?>"/>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Roboto+Condensed">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:200"
+        rel="stylesheet">
     <?php wp_head(); ?>
 </head>
 <body>

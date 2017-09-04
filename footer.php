@@ -1,4 +1,4 @@
-<footer class="theme-color">
+<footer class="theme-color-bg">
     KONTAKT:<br>
 	Edith Meier<br>
 	079 248 33 27<br>
