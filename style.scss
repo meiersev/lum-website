@@ -25,11 +25,17 @@ textarea {
     font-family: 'Catamaran', sans-serif;
 }
 
+html,
 body {
-    margin: auto;
+    margin: 0;
+    padding: 0;
+    width: 100%;
     min-height: 100vh;
-    background-color: white;
+    overflow-x: hidden;
+}
 
+body {
+    background-color: white;
 
     display: flex;
     flex-direction: column;
@@ -54,23 +60,20 @@ a {
     text-decoration: none;
 }
 
-@media #{$desktop} {
-    #page-content {
-        max-width: 960px;
-        margin: auto;
-    }
+@viewport {
+    zoom: 1;
+    width: extend-to-zoom;
 }
 
 header {
     display: flex;
     height: 30vh;
-    width: 100vw;
-    max-width: 100%;
+    width: 100%;
 
     h1 {
         display: inline-block;
         align-self: flex-end;
-        width: 100vw;
+        width: 100%;
         max-width: 960px;
         margin: 0 auto;
         color: white;
@@ -81,14 +84,13 @@ header {
 
     @media (max-width: 550px) {
         h1 {
-            font-size: .7 * $header-title-font-size;
+            font-size: .6 * $header-title-font-size;
         }
     }
 }
 
 nav {
-    width: 100vw;
-    max-width: 100%;
+    width: 100%;
 
     ol {
         display: flex;
@@ -98,7 +100,7 @@ nav {
 
         list-style: none;
         padding: 0;
-        margin: 2rem 0;
+        margin: 1rem 0;
 
         li {
             margin: 0 1rem;
@@ -127,8 +129,20 @@ nav {
     }
 }
 
+
+@media #{$desktop} {
+    #page-content {
+        max-width: 960px;
+        margin: auto;
+    }
+}
+
 #page-content {
     margin: 0 $standard-content-gap;
+
+    h1 {
+        margin: 0;
+    }
 
     .about-content {
         display: flex;
@@ -136,9 +150,8 @@ nav {
 
         .about-page {
             flex: 1 1 45%;
-            min-width: 350px;
 
-            margin: 10px;
+            margin: 0 $standard-content-gap;
             text-align: justify;
             text-indent: 10px;
         }
@@ -169,7 +182,7 @@ nav {
 
         .post-short-date {
             color: $out-of-focus-color;
-            font-size: 1.4rem;
+            font-size: $p-font-size;
             text-align: right;
         }
 
@@ -227,8 +240,7 @@ nav {
 footer {
     color: white;
     font-size: 1rem;
-    width: 100vw;
-    max-width: 100%;
+    width: 100%;
     margin-top: auto;
     text-align: center;
 }
