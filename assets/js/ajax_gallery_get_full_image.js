@@ -1,8 +1,10 @@
-// (function ($) {
+/* Send AJAX request to retrieve the full sized image corresponding to the
+ * given attachment.
+ */
 function galleryThumbClick(attachment_id) {
     var lightboxId = "#img" + attachment_id;
     // If there already is an image there, don't load anything.
-    if (jQuery(lightboxId + " .lightbox img").length != 0) {
+    if (jQuery(lightboxId + " .lightbox>img").length != 0) {
         return;
     }
 
@@ -16,8 +18,19 @@ function galleryThumbClick(attachment_id) {
         success: function(html) {
             var lightbox = jQuery(lightboxId + " .lightbox");
             lightbox.removeClass("spinner");
-            lightbox.html(html);
+            lightbox.append(html);
         }
     });
 }
-// })(jQuery);
+
+/* Get the Id from the hash in the URI and load the image when the page is
+ * loaded.
+ */
+function getImageOnDirectLoad(){
+    var hash = window.location.hash;
+    if (hash.length > 1) {
+        var id = hash.replace('#img', '');
+        galleryThumbClick(id);
+    }
+}
+jQuery(document).ready(getImageOnDirectLoad())

@@ -38,11 +38,50 @@
     max-height: 80vh;
     width: auto;
     height: auto;
-    margin: 10px;
+    margin: 0 10px 10px;
 }
 
 .gallery-thumb-list .lightbox-frame .lightbox p {
     margin: 10px;
+}
+
+.gallery-thumb-list .lightbox-frame .lightbox .lightbox-close {
+    align-self: flex-end;
+    z-index: 10;
+}
+
+.gallery-thumb-list .lightbox-frame .lightbox .lightbox-close img {
+    margin: 3px;
+    vertical-align: bottom;
+}
+
+.gallery-thumb-list .lightbox-frame .lightbox .gallery-arrow {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 25%;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.gallery-thumb-list .lightbox-frame .lightbox .gallery-arrow img {
+    position: absolute;
+    top: 50%;
+}
+
+.gallery-thumb-list .lightbox-frame .lightbox .gallery-arrow:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.gallery-thumb-list .lightbox-frame .lightbox .gallery-prev-arrow {
+    left: 0;
+}
+
+.gallery-thumb-list .lightbox-frame .lightbox .gallery-next-arrow {
+    right: 0;
+}
+
+.gallery-thumb-list .lightbox-frame .lightbox .gallery-next-arrow img {
+    right: 0;
 }
 
 .gallery-thumb-list .lightbox-frame:target {

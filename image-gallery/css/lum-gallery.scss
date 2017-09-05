@@ -2,6 +2,9 @@ $lightbox-bg-color: rgba(0, 0, 0, .8);
 $lightbox-border-radius: 6px;
 $lightbox-min-border: 10px;
 
+$lightbox-nav-hover-color-default: rgba(255, 255, 255, 0);
+$lightbox-nav-hover-color-hover: rgba(255, 255, 255, .2);
+
 $spinner-size: 80px;
 $spinner-color: #07d;
 $spinner-bg-color: #ccc;
@@ -46,11 +49,50 @@ $spinner-bg-color: #ccc;
                 max-height: 80vh;
                 width: auto;
                 height: auto;
-                margin: $lightbox-min-border;
+                margin: 0 $lightbox-min-border $lightbox-min-border;
             }
 
             p {
                 margin: $lightbox-min-border;
+            }
+
+            .lightbox-close {
+                align-self: flex-end;
+                z-index: 10;
+
+                img {
+                    margin: 3px;
+                    vertical-align: bottom;
+                }
+            }
+
+            .gallery-arrow {
+                display: block;
+                position: absolute;
+                height: 100%;
+                width: 25%;
+                background-color: $lightbox-nav-hover-color-default;
+
+                img {
+                    position: absolute;
+                    top: 50%;
+                }
+
+                &:hover {
+                    background-color: $lightbox-nav-hover-color-hover;
+                }
+            }
+
+            .gallery-prev-arrow {
+                left: 0;
+            }
+
+            .gallery-next-arrow {
+                right: 0;
+
+                img {
+                    right: 0;
+                }
             }
         }
 
