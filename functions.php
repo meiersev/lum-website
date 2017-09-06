@@ -49,18 +49,6 @@ add_action('after_setup_theme', 'lum_setup');
 
 function lum_scripts() {
 	wp_enqueue_script('jquery');
-
-	// Ajax gallery image loader.
-	wp_enqueue_script('ajax_gallery_image_load',
-		get_theme_file_uri('/assets/js/ajax_gallery_get_full_image.js'),
-		array('jquery'),
-		NULL,
-		true
-	);
-	// Give the ajax url to the script in object.
-	wp_localize_script('ajax_gallery_image_load', 'ajaxpagination', array(
-        'ajaxurl' => admin_url('admin-ajax.php')
-    ));
 }
 add_action('wp_enqueue_scripts', 'lum_scripts');
 

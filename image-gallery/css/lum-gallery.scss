@@ -1,9 +1,12 @@
 $lightbox-bg-color: rgba(0, 0, 0, .8);
 $lightbox-border-radius: 6px;
 $lightbox-min-border: 10px;
+$lightbox-top-height: 1rem;
 
 $lightbox-nav-hover-color-default: rgba(255, 255, 255, 0);
 $lightbox-nav-hover-color-hover: rgba(255, 255, 255, .2);
+
+$thumbnail-shadow-color: black;
 
 $spinner-size: 80px;
 $spinner-color: #07d;
@@ -19,6 +22,14 @@ $spinner-bg-color: #ccc;
     .gallery-thumb {
         display: inline-block;
         margin: 5px;
+
+        img {
+            border-radius: 3px;
+
+            &:hover {
+                box-shadow: 0 0 2px 1px $thumbnail-shadow-color;
+            }
+        }
     }
 
     .lightbox-frame {
@@ -32,6 +43,12 @@ $spinner-bg-color: #ccc;
         left: 0;
 
         background-color: $lightbox-bg-color;
+
+        &:target {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
         .lightbox {
             position: relative;
@@ -49,57 +66,43 @@ $spinner-bg-color: #ccc;
                 max-height: 80vh;
                 width: auto;
                 height: auto;
-                margin: 0 $lightbox-min-border $lightbox-min-border;
+                margin: $lightbox-min-border;
             }
 
             p {
                 margin: $lightbox-min-border;
             }
 
-            .lightbox-close {
-                align-self: flex-end;
-                z-index: 10;
-
-                img {
-                    margin: 3px;
-                    vertical-align: bottom;
-                }
-            }
-
             .gallery-arrow {
-                display: block;
                 position: absolute;
                 height: 100%;
                 width: 25%;
-                background-color: $lightbox-nav-hover-color-default;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
 
-                img {
-                    position: absolute;
-                    top: 50%;
+                &.gallery-prev-arrow {
+                    left: 0;
+                    align-items: flex-start;
+                }
+
+                &.gallery-next-arrow {
+                    right: 0;
+                    align-items: flex-end;
                 }
 
                 &:hover {
-                    background-color: $lightbox-nav-hover-color-hover;
-                }
-            }
-
-            .gallery-prev-arrow {
-                left: 0;
-            }
-
-            .gallery-next-arrow {
-                right: 0;
-
-                img {
-                    right: 0;
+                    background: $lightbox-nav-hover-color-hover;
                 }
             }
         }
 
-        &:target {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .lightbox-close-bg {
+            position: absolute;
+            display: block;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
         }
     }
 }

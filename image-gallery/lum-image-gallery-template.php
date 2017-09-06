@@ -16,8 +16,9 @@ foreach ($attachment_ids as $index => $attachment_id) {
         <?php echo wp_get_attachment_image($attachment_id, 'thumbnail'); ?>
     </a><?php
     // Lightbox
-    ?><div class="lightbox-frame"
+  ?><div class="lightbox-frame"
         id="<?php echo 'img'.$attachment_id ?>">
+        <a href="#" class="lightbox-close-bg"></a>
         <div class="lightbox spinner">
             <?php
             // Button to go to previous image
@@ -33,10 +34,6 @@ foreach ($attachment_ids as $index => $attachment_id) {
                 </a><?php
             }
             ?>
-                <a href="#" class="lightbox-close">
-                    <img src="<?php echo get_template_directory_uri().
-                              '/image-gallery/icons/ic_close_black_36px.svg'?>" />
-                </a>
                 <!-- Content added dynamically using ajax -->
             <?php
             // Button to go to next image
@@ -50,8 +47,7 @@ foreach ($attachment_ids as $index => $attachment_id) {
                         '/image-gallery/icons/ic_navigate_next_white_48px.svg'?>"
                         />
                 </a><?php
-            }
-            ?>
+            }?>
         </div>
     </div>
 <?php

@@ -22,7 +22,9 @@ $header-title-font-size: 5.5rem;
 html,
 input,
 textarea {
-    font-family: 'Catamaran', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-style: normal;
 }
 
 html,
@@ -78,7 +80,7 @@ header {
         margin: 0 auto;
         color: white;
         font-size: $header-title-font-size;
-        line-height: .5;
+        line-height: .8;
         white-space: nowrap;
     }
 
@@ -111,7 +113,7 @@ nav {
                 display: block;
                 font-size: $h2-font-size;
                 line-height: .8;
-                padding: 12px 8px 8px;
+                padding: 12px 8px;
                 text-decoration: none;
                 text-align: center;
             }
@@ -165,6 +167,14 @@ nav {
         margin: $standard-small-gap 0;
     }
 
+    .post-short-link {
+        display: block;
+
+        &:hover {
+            background-color: $separator-color;
+        }
+    }
+
     .post-short {
         border-bottom: 1px solid $separator-color;
         padding: $standard-content-gap 0;
@@ -172,7 +182,6 @@ nav {
         .post-short-content {
             margin: 0;
             font-size: $p-font-size;
-            line-height: $p-line-height;
         }
 
         .lum-thumbnail {

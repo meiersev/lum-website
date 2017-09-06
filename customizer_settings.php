@@ -77,8 +77,12 @@ function lum_general_theme_color_css() {
             color: <?php echo $wb_complement; ?>;
         }
         ::selection {
-            background-color: <?php echo $theme_color ?>;
             color: <?php echo $wb_complement; ?>;
+            background-color: <?php echo $theme_color ?>;
+        }
+
+        .gallery-thumb-list .gallery-thumb img:hover {
+            box-shadow: 0 0 2px 1px <?php echo $theme_color ?>;
         }
     </style>
     <?php

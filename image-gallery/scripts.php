@@ -17,9 +17,28 @@ function lum_image_gallery_scripts() {
 	wp_register_style('lum-image-gallery',
 	                  $base_url.'/image-gallery/css/lum-gallery.css');
 
-	// needs to load only when there is a gallery
+	// Needs to load only when there is a gallery.
 	if (lum_has_image_gallery()) {
 		wp_enqueue_style('lum-image-gallery');
+
+		// Gallery script.
+		wp_enqueue_script('image_gallery',
+			get_theme_file_uri('/image-gallery/js/image_gallery.js'),
+			array('jquery'),
+			NULL,
+			true
+		);
+		// Ajax gallery image loader.
+		wp_enqueue_script('ajax_gallery_image_load',
+			get_theme_file_uri('/image-gallery/js/ajax_gallery_get_full_image.js'),
+			array('jquery'),
+			NULL,
+			true
+		);
+		// Give the ajax url to the script in object.
+		wp_localize_script('ajax_gallery_image_load', 'ajaxpagination', array(
+	        'ajaxurl' => admin_url('admin-ajax.php')
+	    ));
 	}
 
 }
