@@ -1,8 +1,6 @@
 <footer class="theme-color-bg">
-    KONTAKT:<br>
-	Edith Meier<br>
-	079 248 33 27<br>
-	Wendelinsmatt 10, 5524 Niederwil
+    <img class="lum-logo" src="<?php echo get_template_directory_uri().
+        '/assets/images/lum_logo_white.svg' ?>">
 </footer>
 <?php wp_footer(); ?>
 </body>

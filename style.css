@@ -59,7 +59,7 @@ header h1 {
     margin: 0 auto;
     color: white;
     font-size: 5.5rem;
-    line-height: .8;
+    line-height: .75;
     white-space: nowrap;
 }
 
@@ -219,10 +219,13 @@ nav ol li a {
 
 footer {
     color: white;
-    font-size: 1rem;
     width: 100%;
     margin-top: auto;
-    text-align: center;
+}
+
+footer .lum-logo {
+    margin: 1rem;
+    max-height: 50px;
 }
 
 .parallax {

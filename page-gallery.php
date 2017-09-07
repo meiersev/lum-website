@@ -16,9 +16,8 @@ get_template_part('/template-parts/nav/navigation');
     while ($subpages->have_posts()) {
         $subpages->the_post();
         ?><h1><?php the_title();?></h1>
-        <p><?php
+        <?php
         get_template_part('/image-gallery/lum-image-gallery-template');
-        ?></p><?php
     } ?>
 </section>
 
