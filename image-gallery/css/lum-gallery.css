@@ -21,6 +21,8 @@
 
 .gallery-thumb-list .lightbox-frame {
     display: none;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -28,12 +30,6 @@
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.8);
-}
-
-.gallery-thumb-list .lightbox-frame:target {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .gallery-thumb-list .lightbox-frame .lightbox {
@@ -87,6 +83,8 @@
     display: block;
     width: 100vw;
     height: 100vh;
+    top: 0;
+    left: 0;
     z-index: -1;
 }
 

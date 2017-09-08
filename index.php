@@ -8,7 +8,7 @@ get_header();
 get_template_part('/template-parts/nav/navigation');
 
 // Page content ?>
-<section id="page-content">
+<section id="page-content" class="content-width">
     <?php
     $home_posts = new WP_Query(array(
         'post_type' => 'post',
@@ -17,11 +17,9 @@ get_template_part('/template-parts/nav/navigation');
         'posts_per_page' => 5
     ));
     if ($home_posts->have_posts()) {
-        $i = 0;
         while ($home_posts->have_posts()) {
             $home_posts->the_post();
             get_template_part('/template-parts/post/post-short-content');
-            $i = $i + 1;
         }
     } else { ?>
         <p>

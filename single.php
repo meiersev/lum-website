@@ -8,7 +8,7 @@ get_header();
 get_template_part('/template-parts/nav/navigation');
 
 // Page content ?>
-<section id="page-content">
+<section id="page-content" class="content-width">
     <?php the_post();?>
     <h2 class="post-title"><?php echo the_title(); ?></h2>
 

@@ -69,7 +69,7 @@ $required_field_asterix = "<span
     class=\"highlight tooltip\">*<span class=\"tooltiptext\">Pflichtfeld</span></span>"
 ?>
 
-<section id="page-content" class="contact-content">
+<section id="page-content" class="contact-content content-width">
     <h1><?php the_title() ?></h1>
 
     <?php the_content() ?>

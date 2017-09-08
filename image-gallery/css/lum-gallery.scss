@@ -34,6 +34,8 @@ $spinner-bg-color: #ccc;
 
     .lightbox-frame {
         display: none;
+        align-items: center;
+        justify-content: center;
 
         position: fixed;
         width: 100vw;
@@ -43,12 +45,6 @@ $spinner-bg-color: #ccc;
         left: 0;
 
         background-color: $lightbox-bg-color;
-
-        &:target {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
 
         .lightbox {
             position: relative;
@@ -102,6 +98,8 @@ $spinner-bg-color: #ccc;
             display: block;
             width: 100vw;
             height: 100vh;
+            top: 0;
+            left: 0;
             z-index: -1;
         }
     }

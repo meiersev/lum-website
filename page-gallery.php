@@ -7,7 +7,7 @@ get_header();
 // Navigation part
 get_template_part('/template-parts/nav/navigation');
 
-?><section id="page-content"><?php
+?><section id="page-content" class="content-width"><?php
     $subpages = new WP_Query(array(
         'post_type'   => 'page',
         'post_parent' => 35,

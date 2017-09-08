@@ -12,9 +12,11 @@
             <?php the_title(); ?>
         </h2>
 
-        <p class="post-short-content">
+        <section class="post-short-content">
             <?php the_post_thumbnail('thumbnail', ['class' => 'lum-thumbnail']); ?>
-            <?php echo get_the_content(); ?>
+            <p>
+                <?php echo get_the_content(); ?>
+            </p>
             <p class="post-short-date clear-float">
                 <?php
                 $date_format = 'j. F Y';
@@ -22,7 +24,7 @@
                 echo date_i18n($date_format, $date_stamp);
                 ?>
             </p>
-        </p>
+        </section>
 
     </article>
 </a><!-- #post-## -->

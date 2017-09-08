@@ -107,16 +107,16 @@ nav ol li a {
     }
 }
 
+.content-width {
+    width: 95%;
+    margin: 0 1rem;
+}
+
 @media (min-width: 1024px) {
-    #page-content {
+    .content-width {
         max-width: 960px;
         margin: auto;
     }
-}
-
-#page-content {
-    width: 95%;
-    margin: 0 1rem;
 }
 
 #page-content h1 {
@@ -223,7 +223,18 @@ footer {
     margin-top: auto;
 }
 
-footer .lum-logo {
+footer #footer-content {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer #footer-content a {
+    text-decoration: underline;
+}
+
+footer #footer-content .lum-logo {
     margin: 1rem;
     max-height: 50px;
 }

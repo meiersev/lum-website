@@ -45,6 +45,17 @@ function lum_general_customize_register($wp_customize) {
             'section' => 'general_section'
         )
     ));
+
+    $wp_customize->add_setting('facebook_page', array(
+        'default' => '',
+        'transport' => 'refresh'
+    ));
+    $wp_customize->add_control('facebook_page_link', array(
+        'settings' => 'facebook_page',
+        'label'    => __('Facebook Page'),
+        'section'  => 'general_section',
+        'type'     => 'url'
+    ));
 }
 add_action('customize_register', 'lum_general_customize_register');
 

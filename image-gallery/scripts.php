@@ -21,13 +21,6 @@ function lum_image_gallery_scripts() {
 	if (lum_has_image_gallery()) {
 		wp_enqueue_style('lum-image-gallery');
 
-		// Gallery script.
-		wp_enqueue_script('image_gallery',
-			get_theme_file_uri('/image-gallery/js/image_gallery.js'),
-			array('jquery'),
-			NULL,
-			true
-		);
 		// Ajax gallery image loader.
 		wp_enqueue_script('ajax_gallery_image_load',
 			get_theme_file_uri('/image-gallery/js/ajax_gallery_get_full_image.js'),
@@ -39,6 +32,14 @@ function lum_image_gallery_scripts() {
 		wp_localize_script('ajax_gallery_image_load', 'ajaxpagination', array(
 	        'ajaxurl' => admin_url('admin-ajax.php')
 	    ));
+
+		// Gallery script.
+		wp_enqueue_script('image_gallery',
+			get_theme_file_uri('/image-gallery/js/image_gallery.js'),
+			array('jquery'),
+			NULL,
+			true
+		);
 	}
 
 }

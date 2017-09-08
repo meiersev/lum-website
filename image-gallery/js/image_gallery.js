@@ -1,25 +1,25 @@
-
-/* Prevent #img links to enter the browser history
+/* Open the gallery lightbox.
  */
-jQuery(document).ready(function($) {
+function galleryOpen(attachment_id) {
+    galleryClose();
+    jQuery('#img'+attachment_id).css('display', 'flex');
+    getFullImage(attachment_id);
+}
 
-    if (window.history && window.history.pushState) {
-        var nImagesClicked = 0;
+/* Close the gallery lightbox.
+ */
+function galleryClose() {
+    jQuery('.lightbox-frame').css('display', 'none');
+}
 
-        $(window).on('popstate', function() {
-            var hash = window.location.hash;
-            if (hash === '') {
-                if (nImagesClicked) {
-                    history.go(-nImagesClicked - 1);
-                    nImagesClicked = 0;
-                }
-            } else if (hash.match(/#img[0-9]+/)) {
-                ++nImagesClicked;
-                history.replaceState({}, '', '#');
-                // history.pushState({}, '', hash);
-            }
-            console.log(nImagesClicked);
-        });
+/* Close the gallery lightbox when the back button is pressed.
+ */
+jQuery(document).ready(function ($) {
+    var galleryBackHandler = function (event) {
+        var hash = window.location.hash;
+        if (hash === '' || hash === '#' || hash === undefined) {
+            galleryClose();
+        }
     }
-
+    $(window).on('hashchange', galleryBackHandler);
 });
