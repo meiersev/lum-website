@@ -1,5 +1,6 @@
 <?php
 include_once('php-utils/color-utils.php');
+include_once('php-utils/db-utils.php');
 /*
  * Register customizer object for page title, header image and base color.
  */
@@ -71,10 +72,12 @@ function lum_general_customize_register($wp_customize) {
 add_action('customize_register', 'lum_general_customize_register');
 
 function lum_header_image_css() {
+    $attachment_id = get_image_id_from_url(get_theme_mod('header_image'));
+    $image_url = wp_get_attachment_image_src($attachment_id, array(2000,1200))[0];
     ?>
     <style type="text/css">
         header {
-            background-image: url(<?php echo get_theme_mod('header_image') ?>);
+            background-image: url(<?php echo $image_url ?>);
         }
     </style>
     <?php
@@ -103,7 +106,9 @@ function lum_general_theme_color_css() {
             background-color: <?php echo $theme_color ?>;
         }
 
-        .gallery-thumb-list .gallery-thumb img:hover {
+        .gallery-thumb-list .gallery-thumb img:hover,
+        #page-content.contact-content form button:hover
+        {
             box-shadow: 0 0 2px 1px <?php echo $theme_color ?>;
         }
     </style>
