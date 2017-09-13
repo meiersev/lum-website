@@ -20,7 +20,7 @@ foreach ($attachment_ids as $index => $attachment_id) {
     // Lightbox
   ?><div class="lightbox-frame"
         id="<?php echo 'img'.$attachment_id ?>">
-        <a href="" onclick="galleryClose()" class="lightbox-close-bg"></a>
+        <span onclick="galleryClose()" class="lightbox-close-bg clickable"></span>
         <div class="lightbox-vertical-center">
             <div class="lightbox spinner">
                 <?php
@@ -52,10 +52,10 @@ foreach ($attachment_ids as $index => $attachment_id) {
                     </a><?php
                 }?>
             </div>
-            <a href="" onclick="galleryClose()">
+            <span onclick="galleryClose()" class="clickable">
                 <img src="<?php echo get_template_directory_uri().
                     '/image-gallery/icons/ic_close_white_36px.svg'?>" />
-            </a>
+            </span>
         </div>
     </div>
 <?php

@@ -114,3 +114,7 @@
     border-top-color: #07d;
     animation: spinner .6s linear infinite;
 }
+
+.clickable {
+    cursor: pointer;
+}
