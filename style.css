@@ -201,6 +201,11 @@ nav ol li a {
     margin-bottom: 1rem;
 }
 
+#page-content.contact-content form button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 5px black;
+}
+
 #page-content.contact-content form .highlight {
     color: red;
 }
