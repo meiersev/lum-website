@@ -1,3 +1,14 @@
+/* Resolve Promise when image is fully loaded.
+ */
+function imgLoaded (img) {
+    var deferred = jQuery.Deferred();
+    var image = new Image();
+    image.onload = function () {deferred.resolve();}
+    image.onerror = function () {deferred.resolve();}
+    image.src = img;
+}
+
+
 /* Send AJAX request to retrieve the full sized image corresponding to the
  * given attachment.
  */
@@ -17,8 +28,12 @@ function getFullImage(attachment_id) {
         },
         success: function(html) {
             var lightbox = jQuery(lightboxId + " .lightbox");
-            lightbox.removeClass("spinner");
             lightbox.append(html);
+            lightbox.find('img').load(function () {
+                lightbox.removeClass("spinner");
+                lightbox.find('img').removeClass('hidden');
+                lightbox.find('p').removeClass('hidden');
+            })
         }
     });
 }

@@ -2,10 +2,10 @@
 // Get the html code for the loaded full image.
 function get_full_attachment_image() {
     $attachment_id = $_GET['attachment_id'];
-    echo wp_get_attachment_image($attachment_id, 'large');
+    echo wp_get_attachment_image($attachment_id, 'large', false, array('class' => 'hidden'));
     $description = wp_get_attachment_caption($attachment_id);
     if ($description) {?>
-        <p class="lightbox-description">
+        <p class="lightbox-description hidden">
             <?php echo wp_get_attachment_caption($attachment_id); ?>
         </p><?php
     }
