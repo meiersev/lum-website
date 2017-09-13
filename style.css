@@ -235,8 +235,8 @@ footer #footer-content {
     align-items: center;
 }
 
-footer #footer-content a {
-    text-decoration: underline;
+footer #footer-content .social-link img {
+    max-height: 25px;
 }
 
 footer #footer-content .lum-logo {

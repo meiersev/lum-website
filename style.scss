@@ -264,8 +264,10 @@ footer {
         justify-content: space-between;
         align-items: center;
 
-        a {
-            text-decoration: underline;
+        .social-link {
+            img {
+                max-height: 25px;
+            }
         }
 
         .lum-logo {

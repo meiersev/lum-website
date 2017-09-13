@@ -16,6 +16,17 @@ function getFbLogoSource($size) {
     }
     return $fb_logo_folder.'FB-f-Logo__'.$fb_logo_color.'_'.$size.'.png';
 }
+
+function mapFbLogoSrcSetEntry($size) {
+    $file = getFbLogoSource($size);
+    return $file.' '.$size.'w';
+}
+
+function getFbLogoSrcSet() {
+    $fb_logo_sizes = array(58, 72, 144);
+    $srcset = array_map('mapFbLogoSrcSetEntry', $fb_logo_sizes);
+    return implode(', ', $srcset);
+}
 ?>
 <footer class="theme-color-bg">
     <section id="footer-content" class="content-width">
@@ -23,10 +34,11 @@ function getFbLogoSource($size) {
         $facebook_page = get_theme_mod('facebook_page');
         if ($facebook_page != '') {
             ?>
-            <span>Besuche uns auf <a
+            <span class="social-link">Besuche uns auf <a
                 href="<?php echo $facebook_page ?>"
                 target="_blank">
-                <img src="<?php echo getFbLogoSource(29); ?>" />
+                <img src="<?php echo getFbLogoSource(144); ?>"
+                    srcset="<?php echo getFbLogoSrcSet(); ?>"/>
             </a>
             </span>
             <?php
