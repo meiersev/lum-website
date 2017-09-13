@@ -21,40 +21,42 @@ foreach ($attachment_ids as $index => $attachment_id) {
   ?><div class="lightbox-frame"
         id="<?php echo 'img'.$attachment_id ?>">
         <a href="" onclick="galleryClose()" class="lightbox-close-bg"></a>
-        <div class="lightbox spinner">
-            <?php
-            // Button to go to previous image
-            if ($index > 0) {
-                $prev_attachment_id = $attachment_ids[$index - 1];
-                ?><a href="#gallery"
-                     class="gallery-prev-arrow gallery-arrow"
-                     onclick="<?php echo 'galleryOpen('.$prev_attachment_id.')' ?>">
-                     <img src="<?php
-                        echo get_template_directory_uri().
-                        '/image-gallery/icons/ic_navigate_before_white_48px.svg'?>"
-                        />
-                </a><?php
-            }
-            ?>
-                <!-- Content added dynamically using ajax -->
-            <?php
-            // Button to go to next image
-            if ($index < sizeof($attachment_ids) - 1) {
-                $next_attachment_id = $attachment_ids[$index + 1];
-                ?><a href="#gallery"
-                     class="gallery-next-arrow gallery-arrow"
-                     onclick="<?php echo 'galleryOpen('.$next_attachment_id.')' ?>">
-                     <img src="<?php
-                        echo get_template_directory_uri().
-                        '/image-gallery/icons/ic_navigate_next_white_48px.svg'?>"
-                        />
-                </a><?php
-            }?>
+        <div class="lightbox-vertical-center">
+            <div class="lightbox spinner">
+                <?php
+                // Button to go to previous image
+                if ($index > 0) {
+                    $prev_attachment_id = $attachment_ids[$index - 1];
+                    ?><a href="#gallery"
+                         class="gallery-prev-arrow gallery-arrow"
+                         onclick="<?php echo 'galleryOpen('.$prev_attachment_id.')' ?>">
+                         <img src="<?php
+                            echo get_template_directory_uri().
+                            '/image-gallery/icons/ic_navigate_before_white_48px.svg'?>"
+                            />
+                    </a><?php
+                }
+                ?>
+                    <!-- Content added dynamically using ajax -->
+                <?php
+                // Button to go to next image
+                if ($index < sizeof($attachment_ids) - 1) {
+                    $next_attachment_id = $attachment_ids[$index + 1];
+                    ?><a href="#gallery"
+                         class="gallery-next-arrow gallery-arrow"
+                         onclick="<?php echo 'galleryOpen('.$next_attachment_id.')' ?>">
+                         <img src="<?php
+                            echo get_template_directory_uri().
+                            '/image-gallery/icons/ic_navigate_next_white_48px.svg'?>"
+                            />
+                    </a><?php
+                }?>
+            </div>
+            <a href="" onclick="galleryClose()">
+                <img src="<?php echo get_template_directory_uri().
+                    '/image-gallery/icons/ic_close_white_36px.svg'?>" />
+            </a>
         </div>
-        <a onclick="galleryClose()">
-            <img src="<?php echo get_template_directory_uri().
-                '/image-gallery/icons/ic_close_white_36px.svg'?>" />
-        </a>
     </div>
 <?php
 }

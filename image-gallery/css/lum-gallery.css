@@ -32,6 +32,11 @@
     background-color: rgba(0, 0, 0, 0.8);
 }
 
+.gallery-thumb-list .lightbox-frame .lightbox-vertical-center {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
 .gallery-thumb-list .lightbox-frame .lightbox {
     position: relative;
     display: flex;

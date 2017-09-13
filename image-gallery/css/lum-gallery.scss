@@ -46,6 +46,11 @@ $spinner-bg-color: #ccc;
 
         background-color: $lightbox-bg-color;
 
+        .lightbox-vertical-center {
+            display: flex;
+            flex-flow: row nowrap;
+        }
+
         .lightbox {
             position: relative;
             display: flex;
