@@ -56,6 +56,17 @@ function lum_general_customize_register($wp_customize) {
         'section'  => 'general_section',
         'type'     => 'url'
     ));
+
+    $wp_customize->add_setting('meta_description', array(
+        'default' => '',
+        'transport' => 'refresh'
+    ));
+    $wp_customize->add_control('meta_description_ctrl', array(
+        'settings' => 'meta_description',
+        'label'    => __('SEO meta description'),
+        'section'  => 'general_section',
+        'type'     => 'text'
+    ));
 }
 add_action('customize_register', 'lum_general_customize_register');
 

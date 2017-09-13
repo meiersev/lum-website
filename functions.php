@@ -4,7 +4,7 @@
  */
 
 require_once('customizer_settings.php');
-require_once('/image-gallery/lum-image-gallery.php');
+require_once(__DIR__.'/image-gallery/lum-image-gallery.php');
 
 function lum_setup() {
 	/*

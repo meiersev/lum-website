@@ -36,12 +36,13 @@ $message = $_POST['contact_message'];
 // php mailer variables
 $receiver = get_theme_mod('contact_email');
 $subject  = "Neue Nachricht von ".$name." über ".get_bloginfo('name');
-$headers  = 'From: '. $email . "\r\n" .
-    'Reply-To: ' . $email . "\r\n";
+$headers  = array(
+    'From: '.$email,
+    'Reply-To '.$email
+);
 
 // Validate contact form.
 if (!empty($_POST['submitted'])) {
-    wp_mail('sev.meier@gmail.com', 'test if mail works', 'hurray');
     if (empty($name) || empty($message) || empty($email)) {
         contact_form_generate_response('error', $missing_content);
     } else {
@@ -49,7 +50,7 @@ if (!empty($_POST['submitted'])) {
             contact_form_generate_response('error', $email_invalid);
         } else {
             // send the email
-            $sent = wp_mail($receiver, $subject, strip_tags($message));
+            $sent = wp_mail($receiver, $subject, strip_tags($message), $headers);
             if ($sent) {
                 contact_form_generate_response('success', $message_sent);
             } else {
