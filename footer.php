@@ -44,8 +44,10 @@ function getFbLogoSrcSet() {
             <?php
         }
         ?>
-        <img class="lum-logo" src="<?php echo get_template_directory_uri().
-            '/assets/images/lum_logo_white.svg' ?>">
+        <a class="lum-logo" href="<?php echo get_home_url() ?>">
+            <img src="<?php echo get_template_directory_uri().
+                '/assets/images/lum_logo_white.svg' ?>">
+        </a>
     </section>
 </footer>
 <?php wp_footer(); ?>

@@ -271,8 +271,11 @@ footer {
         }
 
         .lum-logo {
+            display: inline-block;
             margin: $standard-content-gap;
+            height: 80%;
             max-height: 50px;
+            width: 120px;
         }
     }
 }
