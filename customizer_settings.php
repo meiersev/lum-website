@@ -58,6 +58,17 @@ function lum_general_customize_register($wp_customize) {
         'type'     => 'url'
     ));
 
+    $wp_customize->add_setting('meta_keywords', array(
+        'default' => '',
+        'transport' => 'refresh'
+    ));
+    $wp_customize->add_control('meta_keywords_ctrl', array(
+        'settings' => 'meta_keywords',
+        'label'    => __('SEO meta keywords'),
+        'section'  => 'general_section',
+        'type'     => 'text'
+    ));
+
     $wp_customize->add_setting('meta_description', array(
         'default' => '',
         'transport' => 'refresh'

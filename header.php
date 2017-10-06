@@ -10,7 +10,8 @@
         '/assets/images/tiny_logo.ico'?>"/>
     <meta name="viewport" content="initial-scale=1.0" />
     <meta charset="utf-8" />
-    <meta name="description" content="<?php echo get_theme_mod('meta_description') ?>" />
+    <meta name="keywords" content="<?php echo get_theme_mod('meta_keywords'); ?>"/>
+    <meta name="description" content="<?php echo get_theme_mod('meta_description'); ?>" />
     <?php wp_head(); ?>
 </head>
 <body>
