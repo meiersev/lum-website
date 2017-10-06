@@ -34,11 +34,13 @@ $email   = $_POST['contact_email'];
 $message = $_POST['contact_message'];
 
 // php mailer variables
+$info_addr = 'info@lederundmehr.ch';
 $receiver = get_theme_mod('contact_email');
 $subject  = "Neue Nachricht von ".$name." über ".get_bloginfo('name');
 $headers  = array(
-    'From: '.$email,
-    'Reply-To '.$email
+    'From: '.$info_addr,
+    'To: '.$receiver,
+    'Reply-To: '.$email
 );
 
 // Validate contact form.
