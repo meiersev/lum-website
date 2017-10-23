@@ -38,9 +38,9 @@ $info_addr = 'info@lederundmehr.ch';
 $receiver = get_theme_mod('contact_email');
 $subject  = "Neue Nachricht von ".$name." über ".get_bloginfo('name');
 $headers  = array(
-    'From: '.$info_addr,
+    'From: "Leder und Mehr Webseite" <'.$info_addr.'>',
     'To: '.$receiver,
-    'Reply-To: '.$email
+    'Reply-To: "'.$name.'" <'.$email.'>'
 );
 
 // Validate contact form.
