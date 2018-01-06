@@ -6,9 +6,11 @@
         href="<?php bloginfo('stylesheet_url'); ?>"/>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Open+Sans:300">
-    <link rel="icon" type="image/x-icon" href="<?php echo get_template_directory_uri().
-        '/assets/images/tiny_logo.ico'?>"/>
-    <meta name="viewport" content="initial-scale=1.0" />
+    <link rel="icon" href="<?php echo get_template_directory_uri().
+        '/assets/images/tiny_logo.ico'?>" type="image/x-icon"/>
+    <link rel='apple-touch-icon' href='<?php echo get_template_directory_uri().
+        '/assets/images/tiny_logo_white_bg.png'?>' type='image/png'>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta name="keywords" content="<?php echo get_theme_mod('meta_keywords'); ?>"/>
     <meta name="description" content="<?php echo get_theme_mod('meta_description'); ?>" />
