@@ -28,7 +28,12 @@ add_action( 'add_meta_boxes', 'lum_image_gallery_add_meta_box' );
 function lum_image_gallery_metabox() {
     global $post;
 
-    ?><div id="gallery_images_container">
+    ?>
+    <p class="add_gallery_images hide-if-no-js">
+        <a href="#"><?php echo __('Add gallery images'); ?></a>
+    </p>
+
+    <div id="gallery_images_container">
 
         <ul class="gallery_images"><?php
 
@@ -59,10 +64,6 @@ function lum_image_gallery_metabox() {
         <?php wp_nonce_field( 'easy_image_gallery', 'easy_image_gallery' ); ?>
 
     </div>
-
-    <p class="add_gallery_images hide-if-no-js">
-        <a href="#"><?php echo __('Add gallery images'); ?></a>
-    </p>
 
     <?php
 
@@ -113,7 +114,7 @@ function lum_image_gallery_metabox() {
                         if (attachment.id) {
                             attachment_ids = attachment_ids ? attachment_ids + "," + attachment.id : attachment.id;
 
-                             $gallery_images.append('\
+                             $gallery_images.prepend('\
                                 <li class="image attachment details" data-attachment_id="' + attachment.id + '">\
                                     <div class="attachment-preview">\
                                         <div class="thumbnail">\
