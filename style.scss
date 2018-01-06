@@ -148,6 +148,8 @@ nav {
         margin: 0;
     }
 
+    ///// About /////
+
     .about-content {
         display: flex;
         flex-flow: row wrap;
@@ -161,6 +163,8 @@ nav {
         }
     }
 
+    ///// Post /////
+
     .post-title {
         display: inline-block;
         font-size: $h2-font-size;
@@ -170,6 +174,7 @@ nav {
 
     .post-short-link {
         display: block;
+        border-radius: 3px;
 
         &:hover {
             background-color: $separator-color;
@@ -201,6 +206,36 @@ nav {
             clear: both;
         }
     }
+
+    ///// Gallery /////
+
+    .gallery-title {
+        overflow: hidden;
+        text-align: center;
+        margin-bottom: $standard-small-gap;
+        
+        &::before,
+        &::after {
+            background-color: black;
+            content: "";
+            display: inline-block;
+            height: 1px;
+            position: relative;
+            vertical-align: middle;
+            width: 50%;
+        }
+        &::before {
+            right: 0.5em;
+            margin-left: -50%;
+        }
+        &::after {
+            left: 0.5em;
+            margin-right: -50%;
+        }
+    }
+
+
+    ///// Contact /////
 
     &.contact-content {
         form {
