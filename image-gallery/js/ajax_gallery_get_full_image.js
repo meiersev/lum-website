@@ -29,11 +29,9 @@ function getFullImage(attachment_id) {
         success: function(html) {
             var lightbox = jQuery(lightboxId + " .lightbox");
             lightbox.append(html);
-            lightbox.find('img').load(function () {
-                lightbox.removeClass("spinner");
-                lightbox.find('img').removeClass('hidden');
-                lightbox.find('p').removeClass('hidden');
-            })
+			lightbox.removeClass('spinner');
+			lightbox.find('img').removeClass('hidden');
+			lightbox.find('p').removeClass('hidden');
         }
     });
 }
